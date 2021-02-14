@@ -3,7 +3,7 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "sourceMap": true,
-    "outDir": "public",
+    "outDir": "build",
     "baseUrl": "."
   },
   "include": [

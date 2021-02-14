@@ -1,10 +1,10 @@
 {
   "name": "camandecho",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "author": {
     "name": "Matthias Wögerbauer",
-    "email": "matthias.woegerbauer@gmx.at"
+    "email": "matty-w@live.at"
   },
   "description": "A tool for using a dslr as webcam and noise suppression.",
   "build": {
@@ -17,8 +17,14 @@
       "category": "Utility",
       "icon": "./assets/camtoweb.svg"
     },
+    "deb": {
+      "depends": ["gphoto2", "ffmpeg", "v4l2loopback-utils", "v4l2loopback-dkms"]
+    },
+    "rpm": {
+      "depends": ["gphoto2", "ffmpeg", "v4l2loopback"]
+    },
     "files": [
-      "public/**",
+      "build/**",
       "assets/**"
     ]
   },
@@ -31,13 +37,13 @@
     "asar": "^3.0.3",
     "typescript": "^4.1.2"
   },
-  "main": "public/electron.js",
+  "main": "build/electron.js",
   "homepage": "./",
   "scripts": {
     "build": "tsc",
-    "start": "yarn run build && electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "start": "yarn build && electron .",
+    "pack": "yarn build && electron-builder --dir",
+    "dist": "yarn build && electron-builder"
   },
   "eslintConfig": {
     "extends": [

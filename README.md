@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# CamAndEcho
+A tray application for using a e.g. dslr camera as webcam and for activating the echo-cancel-module of pulseaudio.
+</br>
+<img src="./screenshot.png">
+</br>
+Just connect your camera via USB an click "Connect camera".
+In your app of choice, select the camera input source "CamToWebcam"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How does it work?
+For grabbing the video from a connected camera, it uses the gphoto2 application. The grabbed video stream then gets converted by ffmpeg and pushed into a virtual webcam named CamToWebcam created via v4l2.
 
-## Available Scripts
+[CAMERA] => gphoto2 -> ffmpeg -> v4l2 (CamToWebcam)
 
-In the project directory, you can run:
+## Why does it ask for my password when connecting to camera?
+Because it creates a temporary virtual webcam via v4l2 and thus it needs root access. The application itself does not ask for your password. This is done by a command called ```pkexec```.
+</br>
+The full command for creating the virtual webcam is:</br> 
+```pkexec modprobe v4l2loopback devices=1 video_nr=10 card_label="CamToWebcam"```.
+</br>
+If you a curious, look up the file [src/V4L2Driver.ts](./src/V4L2Driver.ts)
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Setup
+## Dependencies
+- gphoto2
+- ffmpeg
+- v4l2loopback-utils
+- v4l2loopback-dkms
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+On Debian based OS:</br>
+```sudo apt-get install gphoto2 ffmpeg v4l2loopback-utils v4l2loopback-dkms```
+</br></br>
+On Redhat base OS:</br>
+```sudo dnf install gphoto2 ffmpeg v4l2loopback```
 
-### `yarn test`
+## Run the code
+First of all in the root directory, run following command to install all dependencies:
+```yarn```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Start the application: ```yarn start```
+- Build the application: ```yarn dist```
 
-### `yarn build`
+```yarn dist``` creates a .deb, appimage and the unpacked application in the ```dist``` folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Tested setup
+- OS: Pop OS 20.10
+- Camera: Canon EOS 200D
