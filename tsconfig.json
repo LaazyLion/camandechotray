@@ -3,7 +3,7 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "sourceMap": true,
-    "outDir": "build",
+    "outDir": "public",
     "baseUrl": "."
   },
   "include": [
@@ -11,6 +11,6 @@
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "public"
   ]
 }

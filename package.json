@@ -15,20 +15,11 @@
       "target": "deb",
       "executableName": "Recording Tools",
       "category": "Utility",
-      "icon": "./icons/camtoweb.svg"
+      "icon": "./assets/camtoweb.svg"
     },
-    "files":[
-      "build/*",
-      "icons"
-    ],
-    "extraFiles": [
-      {
-        "from": "icons",
-        "to": "icons",
-        "filter": [
-          "**/*"
-        ]
-      }
+    "files": [
+      "public/**",
+      "assets/**"
     ]
   },
   "dependencies": {
@@ -37,9 +28,10 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
+    "asar": "^3.0.3",
     "typescript": "^4.1.2"
   },
-  "main": "build/electron.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "scripts": {
     "build": "tsc",

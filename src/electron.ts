@@ -1,9 +1,11 @@
 import { app, Menu, Tray } from 'electron';
 import CamToWebcam from './CamToWebcam';
 import NoiseCancelling from './NoiseCancelling';
+import path = require('path');
 
-const IMAGE_ACTIVE_CAM = './icons/camera_active.png';
-const IMAGE_INACTIVE_CAM = './icons/camera_inactive.png';
+const assetsPath = path.join(__dirname, '..', 'assets');
+const IMAGE_ACTIVE_CAM = path.join(assetsPath, 'camera_active.png');
+const IMAGE_INACTIVE_CAM = path.join(assetsPath, 'camera_inactive.png');
 
 const camToWebcam = new CamToWebcam();
 const noiseCancelling = new NoiseCancelling();
