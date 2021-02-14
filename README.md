@@ -13,7 +13,7 @@ For grabbing the video from a connected camera, it uses the gphoto2 application.
 
 ## Why does it ask for my password when connecting to camera?
 Because it creates a temporary virtual webcam via v4l2 and thus it needs root access. The application itself does not ask for your password. This is done by a command called ```pkexec```.
-</br/>
+</br>
 The full command for creating the virtual webcam is:</br> 
 ```pkexec modprobe v4l2loopback devices=1 video_nr=10 card_label="CamToWebcam"```.
 </br>
