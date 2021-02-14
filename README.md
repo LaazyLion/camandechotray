@@ -16,7 +16,7 @@ In your app of choice, select the camera input source "CamToWebcam"
 
 On Debian based OS:</br>
 ```sudo apt-get install gphoto2 ffmpeg v4l2loopback-utils v4l2loopback-dkms```
-</br>
+</br></br>
 On Redhat base OS:</br>
 ```sudo dnf install gphoto2 ffmpeg v4l2loopback```
 
@@ -30,5 +30,5 @@ First of all in the root directory, run following command to install all depende
 ```yarn dist``` creates a .deb, appimage and the unpacked application in the ```dist``` folder.
 
 # Tested setup
-OS: Pop OS 20.10
-Camera: Canon EOS 200D
+- OS: Pop OS 20.10
+- Camera: Canon EOS 200D
