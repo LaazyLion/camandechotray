@@ -1,5 +1,5 @@
 {
-  "name": "recordingtools",
+  "name": "camandecho",
   "version": "0.1.0",
   "private": true,
   "author": {
@@ -9,11 +9,11 @@
   "description": "A tool for using a dslr as webcam and noise suppression.",
   "build": {
     "appId": "at.woegibros.recordingtools",
-    "productName": "Recording Tools",
+    "productName": "Cam and Echo",
     "copyright": "Copyright © 2021 Matthias Wögerbauer",
     "linux": {
       "target": "deb",
-      "executableName": "Recording Tools",
+      "executableName": "camandecho",
       "category": "Utility",
       "icon": "./assets/camtoweb.svg"
     },
