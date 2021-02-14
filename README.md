@@ -14,9 +14,10 @@ In your app of choice, select the camera input source "CamToWebcam"
 - v4l2loopback-utils
 - v4l2loopback-dkms
 
-On Debian based OS:
+On Debian based OS:</br>
 ```sudo apt-get install gphoto2 ffmpeg v4l2loopback-utils v4l2loopback-dkms```
-On Redhat base OS:
+</br>
+On Redhat base OS:</br>
 ```sudo dnf install gphoto2 ffmpeg v4l2loopback```
 
 ## Run the code
