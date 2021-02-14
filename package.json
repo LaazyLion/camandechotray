@@ -4,7 +4,7 @@
   "private": true,
   "author": {
     "name": "Matthias Wögerbauer",
-    "email": "matthias.woegerbauer@gmx.at"
+    "email": "matty-w@live.at"
   },
   "description": "A tool for using a dslr as webcam and noise suppression.",
   "build": {
